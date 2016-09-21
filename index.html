@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang='en' ng-app="ShoppingCart">
+
+<head>
+	<title> ShoppingCart Demo</title>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="app1.js"></script>
+</head>
+
+<body ng-controller="CartController">
+	
+	<!-- Store -->
+
+	<h1> Xinyi's Online Store</h1>
+	<div ng-repeat="product in fruits">
+		<h2> {{product.name}} </h2>
+		<h3 name="price"> {{product.price}} </h3>
+		<p> {{product.information}} </p>
+		<p>{{product.inCart	}}</p>
+		<button ng-click ="addToCart(product.name)"> Add To Cart</button>
+		<!-- Quantity {{product.quantity}}
+		<input type="text" name ="quantity" ng-model="product.quantity"/>		 -->
+	</div>
+
+	<!-- Cart -->
+	<h1> Cart </h1>
+	<ul>
+			<li ng-repeat="product in fruits">
+				<span ng-show="product.inCart">{{product.name}}</span>
+				{{product.inCart}}
+			</li>	
+	</ul>
+
+
+
+
+
+	<div>
+		total:
+		<input type="button" onclick = "subtotal()" value="Calculate"/>
+		<input type="text" id="stotal"/>
+	</div>
+
+<script type="text/javascript">
+
+function subtotal() {
+	var sum = 0;
+	var obj_price = document.getElementsByName("price");
+    var obj_quantity = document.getElementsByName("quantity");
+    for(var i=0;i<obj_price.length;i++){
+        var a = obj_price.item(i).innerHTML;
+        var b = obj_quantity.item(i).value;
+        //console.log(a,b);
+        sum = sum+a*b;
+    }
+
+	document.getElementById('stotal').value = sum;
+	return;
+}
+
+</script>
+
+</body>
+
+
+
+
