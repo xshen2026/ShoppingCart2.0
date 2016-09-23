@@ -47,7 +47,7 @@
 				if ($scope.fruits[i].inCart == true) {
 					//alert('fruits[i].quantity');
 					sum = sum + $scope.fruits[i].price * $scope.fruits[i].quantity;
-					sum = sum.toFixed(2);
+					/*sum = sum.toFixed(2);*/
 				}
 			}
 			$scope.subtotal = sum;
