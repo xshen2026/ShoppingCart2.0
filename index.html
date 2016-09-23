@@ -24,22 +24,33 @@
 
 	<!-- Cart -->
 	<h1> Cart </h1>
-	<ul>
-			<li ng-repeat="product in fruits">
-				<span ng-show="product.inCart">{{product.name}}</span>
-				{{product.inCart}}
-			</li>	
-	</ul>
+	
+	<div ng-repeat="product in fruits">
+		<span ng-show="product.inCart">
+		{{product.name}} {{product.price}} Quantity:
+		<input type="text" name ="quantity" ng-model="product.quantity">
+		<button ng-click="remove(product.name)"> Delete </button>
+
+		</span>
+	</div>	
+	
+	total:
+	<button ng-click="calculate()" > Calculate</button>
+	<input type="text" ng-model="subtotal">	
+
+	<br>
+	<br>
 
 
 
-
+<!-- 
 
 	<div>
 		total:
 		<input type="button" onclick = "subtotal()" value="Calculate"/>
 		<input type="text" id="stotal"/>
 	</div>
+	<br><br><br>
 
 <script type="text/javascript">
 
@@ -58,7 +69,7 @@ function subtotal() {
 	return;
 }
 
-</script>
+</script> -->
 
 </body>
 

@@ -1,7 +1,7 @@
 (function(){
 	var app = angular.module('ShoppingCart',[ ]);
 
-	app.controller('CartController',['$scope',function($scope){
+	app.controller('CartController',['$scope',function($scope,$window){
 		$scope.fruits = [
 			{
 				name: 'banana',
@@ -26,13 +26,36 @@
 			}
 		];
 		$scope.addToCart = function(itemname) {
-			for (var i = 0; i<$scope.fruits.length; i++) {
+			for (var i = 0; i < $scope.fruits.length; i++) {
 				if ($scope.fruits[i].name === itemname) {
 					$scope.fruits[i].inCart = true;
 					$scope.fruits[i].quantity = 1;
 				}
 			}
 		};
+		$scope.remove = function(itemname) {
+			for(var i = 0; i < $scope.fruits.length; i++) {
+				if ($scope.fruits[i].name === itemname) {
+					$scope.fruits[i].inCart = false;
+				}
+			}
+		};
+		$scope.calculate = function() {
+			var sum = 0;
+			//alert('nima');
+			for(var i = 0; i < $scope.fruits.length; i++) {
+				if ($scope.fruits[i].inCart == true) {
+					//alert('fruits[i].quantity');
+					sum = sum + $scope.fruits[i].price * $scope.fruits[i].quantity;
+					sum = sum.toFixed(2);
+				}
+			}
+			$scope.subtotal = sum;
+		};
+		$scope.test = function() {
+	   		alert('nima');
+		};
+
 	}]);
 
 })();
