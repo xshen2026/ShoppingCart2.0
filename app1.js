@@ -1,7 +1,7 @@
 (function(){
 	var app = angular.module('ShoppingCart',[ ]);
 
-	app.controller('CartController',['$scope',function($scope,$window){
+	app.controller('CartController',['$scope', 'myService', function($scope, myService){
 		$scope.fruits = [
 			{
 				name: 'banana',
@@ -40,6 +40,9 @@
 				}
 			}
 		};
+
+		/*Caculate the subtotal*/
+
 		$scope.calculate = function() {
 			var sum = 0;
 			//alert('nima');
@@ -55,8 +58,33 @@
 		$scope.test = function() {
 	   		alert('nima');
 		};
-
+		$scope.destination = "Maryland";
+		
+		$scope.doTax = function(){
+			$scope.tax = myService.calTax($scope.destination, $scope.subtotal);
+		}
 	}]);
+
+	app.factory('myService',function() {
+		
+		var service = {};
+		
+		service.calTax = function(destination, sub_total){
+			//alert('!!!');
+			var tax = 0;
+			if (destination !== "Maryland") {
+				alert(sub_total);
+				tax = sub_total* 0.06;
+			} else { 
+				alert("Now the destinatino is Maryland");
+			}
+			//alert(sub_total);
+			return tax;
+		}
+		return service;
+
+
+	});
 
 })();
 

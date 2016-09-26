@@ -34,11 +34,19 @@
 		</span>
 	</div>	
 	
-	total:
-	<button ng-click="calculate()" > Calculate</button>
+	SubTotal:
+	<button ng-click="calculate()" > Calculate subtotal</button>
+	<!-- <button ng-click="test()">Test</button> -->
 	<span>{{subtotal | number:2}}</span>
+	<br><bt><br><br>
+	Enter your destination<input type = "text" ng-model = "destination"><br>
+	The tax would be<input type = "text" ng-model = "tax">	
+	<button ng-click="doTax()">Calculate the tax</button>
+	
+
 
 	<br><br><br><br><br>
+
 
 
 
