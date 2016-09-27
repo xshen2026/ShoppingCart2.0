@@ -1,5 +1,5 @@
 (function(){
-	var app = angular.module('ShoppingCart',[ ]);
+	var app = angular.module('ShoppingCart',['ngRoute','vsGoogleAutocomplete']);
 
 	app.config(['$routeProvider',function($routeProvider){
 		$routeProvider.
@@ -84,6 +84,8 @@
 		}
 	}]);
 
+/*-------------calculate tax service-------------------*/
+
 	app.factory('myService',function() {
 		
 		var service = {};
@@ -104,7 +106,7 @@
 
 
 	});
-
+ /*------------------data share service-------------------- */
 	app.factory('dataService',function(){
 		var para = {};
 		para.subtotal = 0;
