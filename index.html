@@ -17,6 +17,8 @@
     <!-- vsGoogleAutocomplete -->
     <script type="text/javascript" src="vs-google-autocomplete.js"></script>
 
+     <script type="text/javascript" src="distance.js"></script>
+
 
 </head>
 
@@ -24,29 +26,6 @@
 
 	<!-- AngularJS will inject the partial pages that correspond to the routed views -->
 	<h1><b> Ashley Shopping Website Demo </b></h1>
-
-	<input vs-google-autocomplete
-                ng-model="address.name" 
-
-                vs-street-number="address.components.streetNumber"
-                vs-street="address.components.street"
-                vs-city="address.components.city"
-                vs-state="address.components.state"
-                vs-country="address.components.country"
-                vs-post-code="address.components.postCode"
-
-                type="text" 
-                name="address"
-                id="address"
-                class="form-control" 
-                placeholder="Hogwarts School of Witchcraft and Wizardry ">
-
-    <span class="help-block"><b>Street: </b>{{address.components.streetNumber}} {{address.components.street}}</span>
-    <span class="help-block"><b>City: </b>{{address.components.city}}</span>
-    <span class="help-block"><b>State: </b>{{address.components.state}}</span>
-    <span class="help-block"><b>Country: </b>{{address.components.country}}</span>
-    <span class="help-block"><b>Zipcode: </b>{{address.components.postCode}}</span>
-
 
 	<a href="#store">store</a>
 	<a href="#shipping">shipping</a>

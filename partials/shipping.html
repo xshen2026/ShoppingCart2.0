@@ -1,7 +1,18 @@
 <div>
+<h1>Enter Your Source</h1>
+<input vs-google-autocomplete
+                ng-model="address1.name" 
+
+                
+                type="text" 
+                name="address1"
+                id="address1"
+                class="form-control" 
+                placeholder="Hogwarts School of Witchcraft and Wizardry ">
+
 <h1>Enter your destination</h1>
 
-<!-- <input vs-google-autocomplete
+<input vs-google-autocomplete
                 ng-model="address.name" 
 
                 vs-street-number="address.components.streetNumber"
@@ -17,10 +28,22 @@
                 class="form-control" 
                 placeholder="Hogwarts School of Witchcraft and Wizardry ">
  <span class="help-block"><b>State: </b>{{address.components.state}}</span>
- -->
+
 <input type="text" ng-model="destination">
+
+<button ng-click="doTax()">Calculate the tax and extra fee</button>
 <h2>The tax would be</h2>
-<input type="text" ng-model="tax">	
-<button ng-click="doTax()">Calculate the tax</button>
+<!-- <input type="text" ng-model="tax">  -->
+
+{{tax}}
+<h2>The Extra Fee</h2>
+{{extra}}
+
+
+<input type="button" value="Get Route" onclick="GetRoute()" />
+
+ <div id="dvDistance">
+        </div>
+
 </div>
 	
