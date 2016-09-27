@@ -3,82 +3,23 @@
 
 <head>
 	<title> ShoppingCart Demo</title>
-	<script type="text/javascript" src="angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
 	<script type="text/javascript" src="app1.js"></script>
 </head>
 
 <body ng-controller="CartController">
-	
-	<!-- Store -->
 
-	<h1> Xinyi's Online Store</h1>
-	<div ng-repeat="product in fruits">
-		<h2> {{product.name}} </h2>
-		<h3 name="price"> {{product.price}} </h3>
-		<p> {{product.information}} </p>
-		<p>{{product.inCart	}}</p>
-		<button ng-click ="addToCart(product.name)"> Add To Cart</button>
-		<!-- Quantity {{product.quantity}}
-		<input type="text" name ="quantity" ng-model="product.quantity"/>		 -->
-	</div>
+	<!-- AngularJS will inject the partial pages that correspond to the routed views -->
+	<h1><b> Ashley Shopping Website Demo </b></h1>
 
-	<!-- Cart -->
-	<h1> Cart </h1>
-	
-	<div ng-repeat="product in fruits">
-		<span ng-show="product.inCart">
-		{{product.name}} {{product.price}} Quantity:
-		<input type="text" name ="quantity" ng-model="product.quantity">
-		<button ng-click="remove(product.name)"> Delete </button>
+	<a href="#store">store</a>
+	<a href="#shipping">shipping</a>
 
-		</span>
-	</div>	
-	
-	SubTotal:
-	<button ng-click="calculate()" > Calculate subtotal</button>
-	<!-- <button ng-click="test()">Test</button> -->
-	<span>{{subtotal | number:2}}</span>
-	<br><bt><br><br>
-	Enter your destination<input type = "text" ng-model = "destination"><br>
-	The tax would be<input type = "text" ng-model = "tax">	
-	<button ng-click="doTax()">Calculate the tax</button>
-	
-
-
-	<br><br><br><br><br>
-
-
-
-
-<!-- 
-
-	<div>
-		total:
-		<input type="button" onclick = "subtotal()" value="Calculate"/>
-		<input type="text" id="stotal"/>
-	</div>
-	<br><br><br>
-
-<script type="text/javascript">
-
-function subtotal() {
-	var sum = 0;
-	var obj_price = document.getElementsByName("price");
-    var obj_quantity = document.getElementsByName("quantity");
-    for(var i=0;i<obj_price.length;i++){
-        var a = obj_price.item(i).innerHTML;
-        var b = obj_quantity.item(i).value;
-        //console.log(a,b);
-        sum = sum+a*b;
-    }
-
-	document.getElementById('stotal').value = sum;
-	return;
-}
-
-</script> -->
+	<div ng-view></div>
 
 </body>
+
+</html>
 
 
 

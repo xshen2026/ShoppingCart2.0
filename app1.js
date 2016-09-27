@@ -1,7 +1,24 @@
 (function(){
 	var app = angular.module('ShoppingCart',[ ]);
 
-	app.controller('CartController',['$scope', 'myService', function($scope, myService){
+	app.config(['$routeProvider',function($routeProvider){
+		$routeProvider.
+		  when('/store',{
+		  	templateUrl: 'partials/store.html',
+		  	controller: 'CartController'
+		  }).
+		  when('/shipping',{
+		  	templateUrl:'partials/shipping.html',
+		  	controller:'CartController'
+		  }).
+		  otherwise({
+		  	redirectTo:'/store'
+		  });
+	}]);
+
+
+
+	app.controller('CartController',['$scope', 'myService','dataService', function($scope, myService,dataService){
 		$scope.fruits = [
 			{
 				name: 'banana',
@@ -54,14 +71,16 @@
 				}
 			}
 			$scope.subtotal = sum;
+			dataService.subtotal = sum;
 		};
-		$scope.test = function() {
+		/*$scope.test = function() {
 	   		alert('nima');
-		};
+		};*/
 		$scope.destination = "Maryland";
 		
+
 		$scope.doTax = function(){
-			$scope.tax = myService.calTax($scope.destination, $scope.subtotal);
+			$scope.tax = myService.calTax($scope.destination, dataService.subtotal);
 		}
 	}]);
 
@@ -84,6 +103,12 @@
 		return service;
 
 
+	});
+
+	app.factory('dataService',function(){
+		var para = {};
+		para.subtotal = 0;
+		return para;
 	});
 
 })();

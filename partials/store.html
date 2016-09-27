@@ -1,0 +1,33 @@
+<!-- Store -->
+<div>
+	<h1> Xinyi's Online Store</h1>
+
+	<div ng-repeat="product in fruits">
+		<h2> {{product.name}} </h2>
+		<h3 name="price"> {{product.price}} </h3>
+		<p> {{product.information}} </p>
+		<p>{{product.inCart	}}</p>
+		<button ng-click ="addToCart(product.name)"> Add To Cart</button>
+		<!-- Quantity {{product.quantity}}
+		<input type="text" name ="quantity" ng-model="product.quantity"/>		 -->
+	</div>
+
+	<!-- Cart -->
+	<h1> Cart </h1>
+	
+	<div ng-repeat="product in fruits">
+		<span ng-show="product.inCart">
+		{{product.name}} {{product.price}} Quantity:
+		<input type="text" name ="quantity" ng-model="product.quantity">
+		<button ng-click="remove(product.name)"> Delete </button>
+
+		</span>
+	</div>	
+	
+	SubTotal:
+	<button ng-click="calculate()" > Calculate subtotal</button>
+	<span>{{subtotal | number:2}}</span>
+	<br><bt><br><br>
+
+	<a href="#shipping" title="next step"><b>Next Step</b></a>
+</div>
