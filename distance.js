@@ -21,11 +21,13 @@ function GetRoute() {
         if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
             var distance = response.rows[0].elements[0].distance.text;
             var duration = response.rows[0].elements[0].duration.text;
+            var distance1 = response.rows[0].elements[0].distance.value;
             var dvDistance = document.getElementById("dvDistance");
             dvDistance.innerHTML = "";
             dvDistance.innerHTML += "Distance: " + distance + "<br />";
             dvDistance.innerHTML += "Duration:" + duration;
- 
+            var dis = document.getElementById("dis");
+            dis.value = distance1;
         } else {
             alert("Unable to find the distance via road.");
         }

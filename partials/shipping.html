@@ -1,49 +1,59 @@
 <div>
-<h1>Enter Your Source</h1>
+<h4>Enter Your Source</h4>
 <input vs-google-autocomplete
-                ng-model="address1.name" 
-
-                
+                ng-model="address1.name"               
                 type="text" 
                 name="address1"
                 id="address1"
                 class="form-control" 
                 placeholder="Hogwarts School of Witchcraft and Wizardry ">
 
-<h1>Enter your destination</h1>
+<h4>Enter your destination</h4>
 
 <input vs-google-autocomplete
                 ng-model="address.name" 
-
                 vs-street-number="address.components.streetNumber"
                 vs-street="address.components.street"
                 vs-city="address.components.city"
                 vs-state="address.components.state"
                 vs-country="address.components.country"
                 vs-post-code="address.components.postCode"
-
                 type="text" 
                 name="address"
                 id="address"
                 class="form-control" 
                 placeholder="Hogwarts School of Witchcraft and Wizardry ">
- <span class="help-block"><b>State: </b>{{address.components.state}}</span>
-
-<input type="text" ng-model="destination">
+<br><br>
+ destination state: {{address.components.state}}<br><br>
 
 <button ng-click="doTax()">Calculate the tax and extra fee</button>
 <h2>The tax would be</h2>
-<!-- <input type="text" ng-model="tax">  -->
-
 {{tax}}
 <h2>The Extra Fee</h2>
 {{extra}}
 
+<br>
 
-<input type="button" value="Get Route" onclick="GetRoute()" />
 
- <div id="dvDistance">
-        </div>
+ <div id="dvDistance"></div> 
+
+ The source is : {{address1.name}} <br>
+ The destination is: {{address.name}} <br>
+
+<button ng-click="getDistance()"> Calculate the distance</button>
+
+<h3>The distance is </h3>
+ <input id="dis" ng-model="distance"> <br>
+ {{distance}}
+
+
+
+
+<h2>The shipping fee</h2>
+<button ng-click="doShip()"> Calculate the shipping fee</button>
+{{shippingFee}}
+
+
 
 </div>
 	

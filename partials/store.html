@@ -24,9 +24,12 @@
 		</span>
 	</div>	
 	
-	SubTotal:
-	<button ng-click="calculate()" > Calculate subtotal</button>
-	<span>{{subtotal | number:2}}</span>
+	
+	<button ng-click="calculate()" >Calculate subtotal</button><br>
+
+	Subtotal:{{subtotal | number:2}}<br>
+	Total Quantity:{{totalQuantity}}<br>
+	Total Weight:{{totalWeight}}
 	<br><bt><br><br>
 
 	<a href="#shipping" title="next step"><b>Next Step</b></a>
