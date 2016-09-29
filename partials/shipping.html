@@ -46,8 +46,9 @@
  <input id="dis" ng-model="distance"> <br>
  {{distance}}
 
-
-
+<h2>Choose Your shipping Method</h2>
+<select ng-model="SM" ng-options="item for item in shippingMethods">
+</select>
 
 <h2>The shipping fee</h2>
 <button ng-click="doShip()"> Calculate the shipping fee</button>

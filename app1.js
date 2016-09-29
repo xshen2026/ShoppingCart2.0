@@ -17,7 +17,7 @@
 	}]);
 
 	app.controller('CartController',['$scope', 'myService','dataService', 'shippingFee', function($scope, myService,dataService,shippingFee){
-
+		$scope.shippingMethods = ['Fast Shipping','Ground Shipping'];
 		
 		$scope.fruits = [
 			{
@@ -132,7 +132,7 @@
 			alert('Now calculate the shipping fee');
 			alert('$scope.distance = '+$scope.distance);
 			alert('totalweight ='+dataService.totalWeight);
-			$scope.shippingFee = shippingFee.calShipping("Fast Shipping", $scope.distance, dataService.totalWeight);
+			$scope.shippingFee = shippingFee.calShipping($scope.SM, $scope.distance, dataService.totalWeight);
 			alert('shippingFee='+$scope.shippingFee);
 		};
 	}]);
